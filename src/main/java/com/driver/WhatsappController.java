@@ -26,9 +26,6 @@ public class WhatsappController {
     public String createUser(String name, String mobile) throws Exception {
         //If the mobile number exists in database, throw "User already exists" exception
         //Otherwise, create the user and return "SUCCESS"
-        if(!whatsappService.isNewUser(mobile))
-            throw new Exception("User already exists");
-
 
         return whatsappService.createUser(name, mobile);
     }
@@ -69,6 +66,7 @@ public class WhatsappController {
         //Throw "Approver does not have rights" if the approver is not the current admin of the group
         //Throw "User is not a participant" if the user is not a part of the group
         //Change the admin of the group to "user" and return "SUCCESS". Note that at one time there is only one admin and the admin rights are transferred from approver to user.
+
 
         return whatsappService.changeAdmin(approver, user, group);
     }
